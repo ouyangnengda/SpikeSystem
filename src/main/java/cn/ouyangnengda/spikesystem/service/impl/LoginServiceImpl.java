@@ -3,7 +3,6 @@ package cn.ouyangnengda.spikesystem.service.impl;
 import cn.ouyangnengda.spikesystem.dao.UserDAO;
 import cn.ouyangnengda.spikesystem.pojo.User;
 import cn.ouyangnengda.spikesystem.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,14 +13,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    @Autowired
-    UserDAO userDAO;
+    private final UserDAO userDAO;
+
+    public LoginServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public boolean insertUser(User user) {
-        if (userDAO.insertUser(user)) {
-            return true;
-        }
-        return false;
+        return userDAO.insertUser(user);
     }
 
 }

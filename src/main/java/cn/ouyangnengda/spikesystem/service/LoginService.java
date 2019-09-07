@@ -9,6 +9,6 @@ import cn.ouyangnengda.spikesystem.pojo.User;
  **/
 public interface LoginService {
 
-    public boolean insertUser(User user);
+    boolean insertUser(User user);
 
 }

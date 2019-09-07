@@ -1,13 +1,10 @@
 package cn.ouyangnengda.spikesystem.controller;
 
-import cn.ouyangnengda.spikesystem.consumer.MessageConsumer;
-import cn.ouyangnengda.spikesystem.pojo.User;
 import cn.ouyangnengda.spikesystem.producer.MessageProducer;
-import cn.ouyangnengda.spikesystem.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * @Description:
@@ -17,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @Autowired
-    MessageProducer messageProducer;
+    private final MessageProducer messageProducer;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public LoginController(MessageProducer messageProducer) {
+        this.messageProducer = messageProducer;
+    }
+
+    @RequestMapping(value = "/login", method = GET)
     public void login() {
         messageProducer.send("小红");
 

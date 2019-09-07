@@ -7,5 +7,5 @@ package cn.ouyangnengda.spikesystem.producer;
  **/
 public interface MessageProducer {
 
-    public void send(String msg);
+    void send(String msg);
 }
