@@ -13,7 +13,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDAO {
 
-    public boolean insertUser(User user);
+    boolean insertUser(User user);
 
-    public User selectUserById(int id);
+    User findUser(String name);
+
+    User selectUserById(int id);
+
 }

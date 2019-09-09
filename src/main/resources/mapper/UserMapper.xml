@@ -6,7 +6,11 @@
         select id,name from user where id = #{id};
     </select>
 
+    <select id="findUser" resultType="User">
+        select id, name, password, salt, balance from user where name=#{name};
+    </select>
+
     <insert id="insertUser" parameterType="User">
-        insert into user(name) VALUES (#{name});
+        insert into user(name, password, salt, balance) VALUES (#{name}, #{password}, #{salt}, #{balance});
     </insert>
 </mapper>

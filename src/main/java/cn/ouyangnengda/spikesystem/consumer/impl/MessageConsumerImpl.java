@@ -28,9 +28,8 @@ public class MessageConsumerImpl implements MessageConsumer {
     @RabbitListener(queues = "ouyangnengda.spikesystem.queue")
     @Override
     public void receive(String msg) {
-        logger.info("reveive: " + msg);
         User user = new User();
         user.setName(msg);
-        logger.info("result: " + loginService.insertUser(user));
+        //logger.info("result: " + loginService.insertUser(user));
     }
 }

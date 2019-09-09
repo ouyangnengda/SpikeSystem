@@ -11,4 +11,6 @@ public interface LoginService {
 
     boolean insertUser(User user);
 
+    boolean comparePassword(String name, String password);
+
 }
